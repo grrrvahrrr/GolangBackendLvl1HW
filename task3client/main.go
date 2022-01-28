@@ -34,8 +34,14 @@ func main() {
 
 	defer conn.Close()
 	go func() {
-		io.Copy(os.Stdout, conn)
+		_, err = io.Copy(os.Stdout, conn)
+		if err != nil {
+			log.Println(err)
+		}
 	}()
-	io.Copy(conn, os.Stdin)
+	_, err = io.Copy(conn, os.Stdin)
+	if err != nil {
+		log.Println(err)
+	}
 	fmt.Printf("%s: exit\n", conn.LocalAddr())
 }
