@@ -1,12 +1,11 @@
-.PHONY: lint
-lint:
-	golangci-lint run
+GIT_COMMIT=$(shell git rev-list -1 HEAD)
+LDFLAGS=-a -tags -ldflags="-w extldflags '-static' -X lesson8/request.GitCommit=${GIT_COMMIT}"
+FLAGS=CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 
 .PHONY: test
 test:
 	go test ./...
 
 .PHONY: build
-build: lint
 build: test
-	go build
+	${FLAGS} go build ${LDFLAGS}
