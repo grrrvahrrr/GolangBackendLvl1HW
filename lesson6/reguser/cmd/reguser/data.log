@@ -3,3 +3,4 @@
 {"timestamp":"2022-02-14T13:20:43.647902022+03:00","eventType":"create","user":{"id":"e2e690fa-97b8-418d-a86b-883205265ea8","name":"john","data":"manager"}}
 {"timestamp":"2022-02-14T13:28:09.06067813+03:00","eventType":"create","user":{"id":"39dec1d5-76d3-4709-9b07-314d44b2a18f","name":"sam","data":"ceo"}}
 {"timestamp":"2022-02-14T15:45:40.25675084+03:00","eventType":"delete","user":{"id":"1056a5b1-4342-4739-9ee0-0ab63ba6e7e8"}}
+{"timestamp":"2022-02-16T17:23:45.885903306+03:00","eventType":"create","user":{"id":"e51cff30-6c47-4423-9558-f4b8924e342e","name":"john","data":"manager"}}

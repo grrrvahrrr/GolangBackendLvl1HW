@@ -171,10 +171,12 @@ func sendTopic(ctx context.Context, topic *pubsub.Topic, se usermemstate.StateEv
 func (us *Users) SearchUsers(ctx context.Context, s string) (chan userentity.User, error) {
 	chout := make(chan userentity.User, 100)
 	chin, err := us.ums.SearchUsers(ctx, s)
+
 	if err != nil {
 		return nil, err
 	}
 	go func() {
+		defer close(chout)
 		for stu := range chin {
 			chout <- userentity.User{
 				ID:          stu.ID,
