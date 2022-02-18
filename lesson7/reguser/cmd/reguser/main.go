@@ -17,7 +17,7 @@ func main() {
 
 	// ust := usermemstore.NewUsers()
 	// ust, err := userfilemanager.NewUsers("./data.json", "mem://userRefreshTopic")
-	ust, err := pgstore.NewUsers("postgres://deus:123@localhost:5432/deus?sslmode=disable")
+	ust, err := pgstore.NewUsers(os.Getenv("PG_DSN"))
 	if err != nil {
 		log.Fatal(err)
 	}
